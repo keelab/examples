@@ -1,0 +1,81 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "ping.v1",
+    "version": "generated"
+  },
+  "paths": {
+    "/v1/ping": {
+      "get": {
+        "operationId": "ping.v1.PingService.Ping",
+        "summary": "Ping",
+        "tags": [
+          "ping.v1.PingService"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.protobuf.Empty"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Keelith error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/KeelithError"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "KeelithError": {
+        "additionalProperties": false,
+        "properties": {
+          "code": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "message": {
+            "type": "string"
+          },
+          "metadata": {
+            "additionalProperties": {
+              "type": "string"
+            },
+            "type": "object"
+          },
+          "reason": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "code",
+          "reason",
+          "message"
+        ],
+        "type": "object"
+      },
+      "google.protobuf.Empty": {
+        "additionalProperties": false,
+        "properties": {},
+        "type": "object"
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "ping.v1.PingService"
+    }
+  ]
+}

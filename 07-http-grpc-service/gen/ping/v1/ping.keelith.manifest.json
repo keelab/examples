@@ -1,0 +1,58 @@
+{
+  "schemaVersion": "v3",
+  "generatorProtocol": "v1",
+  "source": "ping/v1/ping.proto",
+  "package": "ping.v1",
+  "goImportPath": "github.com/keelab/examples/07-http-grpc-service/gen/ping/v1",
+  "goPackage": "pingv1",
+  "services": [
+    {
+      "name": "ping.v1.PingService",
+      "goName": "PingService",
+      "methods": [
+        {
+          "name": "Ping",
+          "operation": "/ping.v1.PingService/Ping",
+          "kind": "unary",
+          "input": "google.protobuf.Empty",
+          "output": "google.protobuf.Empty",
+          "http": {
+            "method": "GET",
+            "path": "/v1/ping"
+          }
+        }
+      ]
+    }
+  ],
+  "listeners": [
+    {
+      "transport": "grpc",
+      "service": "ping.v1.PingService"
+    },
+    {
+      "transport": "http",
+      "service": "ping.v1.PingService",
+      "routes": [
+        {
+          "method": "GET",
+          "path": "/v1/ping",
+          "operation": "/ping.v1.PingService/Ping"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "kind": "generated-adapter",
+      "transport": "grpc",
+      "service": "ping.v1.PingService",
+      "goImportPath": "github.com/keelab/examples/07-http-grpc-service/gen/ping/v1",
+      "goPackage": "pingv1",
+      "goName": "PingService",
+      "reason": "generated-http-gateway",
+      "operations": [
+        "/ping.v1.PingService/Ping"
+      ]
+    }
+  ]
+}

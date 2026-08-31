@@ -1,0 +1,58 @@
+{
+  "schemaVersion": "v3",
+  "generatorProtocol": "v1",
+  "source": "greeting/v1/greeting.proto",
+  "package": "greeting.v1",
+  "goImportPath": "github.com/keelab/examples/06-service-profile/gen/greeting/v1",
+  "goPackage": "greetingv1",
+  "services": [
+    {
+      "name": "greeting.v1.GreetingService",
+      "goName": "GreetingService",
+      "methods": [
+        {
+          "name": "GetGreeting",
+          "operation": "/greeting.v1.GreetingService/GetGreeting",
+          "kind": "unary",
+          "input": "google.protobuf.Empty",
+          "output": "greeting.v1.GetGreetingResponse",
+          "http": {
+            "method": "GET",
+            "path": "/v1/greeting"
+          }
+        }
+      ]
+    }
+  ],
+  "listeners": [
+    {
+      "transport": "grpc",
+      "service": "greeting.v1.GreetingService"
+    },
+    {
+      "transport": "http",
+      "service": "greeting.v1.GreetingService",
+      "routes": [
+        {
+          "method": "GET",
+          "path": "/v1/greeting",
+          "operation": "/greeting.v1.GreetingService/GetGreeting"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "kind": "generated-adapter",
+      "transport": "grpc",
+      "service": "greeting.v1.GreetingService",
+      "goImportPath": "github.com/keelab/examples/06-service-profile/gen/greeting/v1",
+      "goPackage": "greetingv1",
+      "goName": "GreetingService",
+      "reason": "generated-http-gateway",
+      "operations": [
+        "/greeting.v1.GreetingService/GetGreeting"
+      ]
+    }
+  ]
+}

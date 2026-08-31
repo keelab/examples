@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package ping.v1;
+
+import "google/api/annotations.proto";
+import "google/protobuf/empty.proto";
+
+option go_package = "github.com/keelab/examples/07-http-grpc-service/gen/ping/v1;pingv1";
+
+service PingService {
+  rpc Ping(google.protobuf.Empty) returns (google.protobuf.Empty) {
+    option (google.api.http) = {
+      get: "/v1/ping"
+    };
+  }
+}

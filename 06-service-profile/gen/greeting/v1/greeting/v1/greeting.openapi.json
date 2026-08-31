@@ -1,0 +1,90 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "greeting.v1",
+    "version": "generated"
+  },
+  "paths": {
+    "/v1/greeting": {
+      "get": {
+        "operationId": "greeting.v1.GreetingService.GetGreeting",
+        "summary": "GetGreeting",
+        "tags": [
+          "greeting.v1.GreetingService"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/greeting.v1.GetGreetingResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Keelith error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/KeelithError"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "KeelithError": {
+        "additionalProperties": false,
+        "properties": {
+          "code": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "message": {
+            "type": "string"
+          },
+          "metadata": {
+            "additionalProperties": {
+              "type": "string"
+            },
+            "type": "object"
+          },
+          "reason": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "code",
+          "reason",
+          "message"
+        ],
+        "type": "object"
+      },
+      "google.protobuf.Empty": {
+        "additionalProperties": false,
+        "properties": {},
+        "type": "object"
+      },
+      "greeting.v1.GetGreetingResponse": {
+        "additionalProperties": false,
+        "properties": {
+          "message": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "greeting.v1.GreetingService"
+    }
+  ]
+}

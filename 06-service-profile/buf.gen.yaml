@@ -1,0 +1,16 @@
+version: v2
+plugins:
+  - local:
+      - go
+      - run
+      - google.golang.org/protobuf/cmd/protoc-gen-go@v1.36.11
+    out: gen/greeting/v1
+    opt:
+      - paths=source_relative
+  - local:
+      - go
+      - run
+      - github.com/keelab/keelith/cmd/protoc-gen-go-keelith
+    out: gen/greeting/v1
+    opt:
+      - paths=source_relative
