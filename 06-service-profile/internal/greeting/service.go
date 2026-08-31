@@ -3,7 +3,7 @@ package greeting
 import (
 	"context"
 
-	greetingv1 "github.com/keelab/keelith/examples/06-service-profile/gen/greeting/v1"
+	greetingv1 "github.com/keelab/examples/06-service-profile/gen/greeting/v1"
 	"google.golang.org/protobuf/types/known/emptypb"
 )
 

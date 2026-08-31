@@ -10,7 +10,7 @@ import (
 
 	"github.com/keelab/examples/06-service-profile/internal/greeting"
 	"github.com/keelab/keelith"
-	greetingv1 "github.com/keelab/keelith/examples/06-service-profile/gen/greeting/v1"
+	greetingv1 "github.com/keelab/examples/06-service-profile/gen/greeting/v1"
 	"github.com/keelab/keelith/middleware"
 	"github.com/keelab/keelith/service"
 )
